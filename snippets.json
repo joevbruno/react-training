@@ -1,0 +1,18 @@
+{
+    "React: G2 New Component": {
+        "prefix": "g2nc",
+        "body": ["import React, { PropTypes, Component } from \"react\";\nimport styles from \"./$1.scss\";\n\nconst propTypes = {};\n\nclass $1 extends Component {\n\trender() {\n\t\treturn (\n\t\t\t<div>\n\t\t\t\t$2\n\t\t\t</div>\n\t\t);\n\t}\n}\n$1.propTypes = propTypes;\nexport default $1;"]
+    },
+    "React: G2 index import": {
+        "prefix": "g2import",
+        "body": "import $1 from \"./$1\";\nexport default $1;"
+    },
+    "React: Should Constructor": {
+        "prefix": "g2shouldConstruct",
+        "body": "this.shouldComponentUpdate = shouldComponentUpdate.bind(this);"
+    },
+    "React: Should Comp": {
+        "prefix": "g2shouldImp",
+        "body": "import { shouldComponentUpdate } from \"react-addons-pure-render-mixin\";"
+    }
+}
