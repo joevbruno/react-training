@@ -603,7 +603,7 @@ export default MyButton; // we can now import and use MyButton in any component 
 That is a complete React component, and most components will look very, very similar to this! Don't believe me? Here's a complete one:
 
 
-This is the layout that the majority of your react components:
+This is the layout that the majority of your react components will follow:
 
 
 ```
