@@ -17,6 +17,7 @@ Beyond the obvious thing of exploring the links below, it is really helpful to d
     + [Eric Elliot How To Learn ES6](https://medium.com/javascript-scene/how-to-learn-es6-47d9a1ac2620#.5l5sjzhwk)
     + [ES6 Guide](https://mrzepinski.gitbooks.io/es6-guide/content/)
     + [ES6 Cheatsheet](https://github.com/DrkSephy/es6-cheatsheet)
+    + [You don't know JS](https://github.com/getify/You-Dont-Know-JS/tree/master/es6%20%26%20beyond)
 + NPM
     + [Understanding NPM: A Beginner's Guide](https://www.sitepoint.com/beginners-guide-node-package-manager/)
 + SCSS
