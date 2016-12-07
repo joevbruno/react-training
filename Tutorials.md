@@ -1,9 +1,9 @@
 # Tutorials
 
 Beyond the obvious thing of exploring the links below, it is really helpful to do to the following:
-+ Follow Dan Abromov on Twitter.
-+ Follow the React Meeting Notes
-+ Subscribe to React NewsLetter, Versioning, and Javascript Weekly (All Free).
++ Follow [Dan Abromov](https://twitter.com/dan_abramov?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor) on Twitter.
++ Follow the [React Meeting Notes](https://github.com/reactjs/core-notes)
++ Subscribe to [React NewsLetter](http://reactjsnewsletter.com/), [Versioning](http://www.newsletterstash.com/newsletter/versioning), and [Javascript Weekly](http://javascriptweekly.com/) (All Free).
 
 + React
     + [React Playground] (http://www.react.run/HyVJ-QHZe/1)
