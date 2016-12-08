@@ -163,7 +163,7 @@ We can almost start writing some real React, but first, say hello to JSX.
 ## JSX
 
 Truly static HTML doesn't work for most applications. We need dynamic elements. Most Javascript frameworks attempt to solve this problem by introducing
-a DSL into HTML to make it more dynamic. In other words, *we're writing Javascript as strings in our HTML*. Knockout, Angular, Vue -- all follow this pattern.
+a **DSL** into HTML to make it more dynamic. In other words, *we're writing Javascript as strings in our HTML*. Knockout, Angular, Vue -- all follow this pattern.
 
 React does exactly the opposite. There are no HTML files. Instead, your HTML is written along side and as a part of your Javascript functions. This is extremely
 powerful, but may be feel philosophically wrong at first. It will definitely feel different, and you may have an objection that we're not separating concerns; however, the *concern* is the 
@@ -177,24 +177,27 @@ So here's JSX:
 ``` 
 
 Both buttons are using JSX. Not bad right? A couple of things to note:
-+ Remember, this is Javascript. `class` is a keyword, so instead we need to use `className`. HTML attributes that are two words (like SVG's stroke-width) are written using camelCase (strokeWidth because stroke-width isn't a valid way to write a Javascript variable)
++ Remember, this is Javascript. You're writing your HTML (as JSX) in a `.jsx` or `.js` file not a `.html`. `class` is a keyword in Javascript, so instead we need to use `className`. HTML attributes that are two words (like SVG's stroke-width) are written using camelCase (strokeWidth because stroke-width isn't a valid way to write a Javascript variable)
 + `id`, `className` and any other HTML attribute are `props`. In other words, they form an `object` of options that is passed to the function that creates the button element.
 + `<button>` and `<Button>` are different. Elements that begin with a lowercase word are treated as HTML elements. Capitalized elements are treated as React components.
-+ JSX can appear anywhere inside of a .js or .jsx file.
++ JSX can appear anywhere inside of a .js or .jsx file, not just the `render` method - though any method that returns actual JSX usually beings with `render` (like `renderButton`), but only as a matter of preference and communication. It isn't a requirement.
 + You can add event handlers directly to JSX elements:  `<button onClick={this.handleOnClick}>My Button</button>`. A listener is automatically created.
 + `{` in JSX means, "I want to write Javascript here". Any singular Javascript expression will work. That means that `if` won't work, but `ternary` expressions will or if you have a callback, you can use `if` inside of the callback.
++ if you see double mustaches like this `{{ }}`, the outer set is saying, "This is Javascript", and the inner set is the standard outer brackets of a Javascript object.
 
-If you really want to see what this is all transpiling to, you can [here](https://jsx-live.now.sh/)
+If you really want to see what JSX is actually transpiling to (we do automatically using [Babel](https://babeljs.io/)), you can see that [here](https://jsx-live.now.sh/)
 
 We're almost ready to see it action, but the last thing to briefly cover before writing our first real React component is ES6.
 
 ## ES6 Intro
-Ecmascript is the official version of Javascript. Beginning in 2015, they made the decision to release yearly upgrades to the Javascript language itself.
-It had been YEARS since Javascript had any real changes. Thus, ES6 or ES2015 (same thing) came STUFFED with tons of new features. Since we are now past 2015, there has been another offical release (ES7 or ES2016) and ES8 is due in Jan. 2017;
+[Ecmascript](https://www.ecma-international.org/publications/standards/Ecma-262.htm) is the official version of Javascript. Beginning in 2015, they made the decision to release yearly upgrades to the Javascript language itself.
+It had been **YEARS** since Javascript had any real changes. Thus, ES6 or ES2015 (same thing) came STUFFED with tons of new features. Since we are now past 2015, there has been another official release (ES7 or ES2016) and ES8 is due in Jan. 2017;
 however, these latter two releases only include a handful of changes. ES2015 contains over 20. It's important to recognize that these changes are not part of a library.
-This is official Javascript, and is the recommended way of writing Javascript going forward. Here are a few of the new features or syntax differences you should be aware of:
+This is official Javascript, and is the recommended way of writing Javascript going forward. Also, we don't really need to worry about Browser compatibility because Babel's transpiling it down to ES5 or ES3. That means we could support all the way back to IE6 or IE8 if we had to do so.
+In other words, we can freely write modern or even futuristic Javascript now without worry about Browser compatibility or running of to [CanIUse](http://caniuse.com/).
 
-First, let me say that if you are wondering, "How do I write this in ES6?", checkout [Lebab](http://lebab.io/try-it) and conversely, the Babel [REPL](http://babeljs.io/repl/). These are great places to play.
+Finally, let me say that if you are wondering, "How do I write this in ES6?", checkout [Lebab](http://lebab.io/try-it) and conversely, the Babel [REPL](http://babeljs.io/repl/). These are great places to play.
+
 Now on to the good stuff:
 
 
