@@ -4,14 +4,15 @@ Perhaps you're here because you want to learn "React." Perhaps you're here becau
 you're not really going to be learning React - or better yet, you're not going be learning *just* React. In truth, React itself is really very
 simple. Seriously - it's 10 functions (called lifecycle methods), 3 key terms (props, state, refs), and two validation properties (propTypes, defaultProps).
 That's it. Done. Every component is structured the same. If you know how to read one file, you can ready anyone's code, but React is kind of known for being hard. You will see things like `#JavascriptFatigue` everywhere.
-And that right there is the problem: the learning curve tied to React is predominantly tied to two things: 1) the conceptual paradigm and 2) the tooling, workflow, and third-party libraries associated with the Javascript community.
+And that right there is the problem: the learning curve tied to React is predominantly tied to two things: 1) the conceptual paradigm (that is, learning to think in components with data flowing one direction instead of two-way data-binding) and 2) the tooling, workflow, and third-party libraries associated with the Javascript community.
 
-The latter part is true of any modern Javascript framework including Angular 2, Aurelia, Vuejs, or Ember to name the most popular (if you are wondering where the industry as a whole is at, see [here](https://ashleynolan.co.uk/blog/frontend-tooling-survey-2016-results)). All of these frameworks require or highly recommend build tools, transpiling, linting, bundling, and testing and the more custom your application or the bigger your application, the more customization is required.
+The latter part is true of any modern Javascript framework including Angular 2, Aurelia, Vuejs, or Ember to name the most popular (if you are wondering where the industry as a whole is at, see [here](https://ashleynolan.co.uk/blog/frontend-tooling-survey-2016-results)). All of these frameworks require or highly recommend build tools, transpiling, linting, bundling, and testing, and the larger your application (in terms of size, scale, or the more you choose to be opinionated about the implementation details), the more complex the tooling requirements become.
 
-React itself is very modular framework. One of the initial catch-phrases that followed it closely was "Just the V in the View layer (of MVC)";
-however, while technically true, it really misses the [point of React](https://medium.com/@dan_abramov/youre-missing-the-point-of-react-a20e34a51e1a#.h5po9f5wc) and React doesn't really fit well into a client-side MVC framework at all - hence the conceptual paradigm differences noted above.
-Similarly, React doesn't really fit well into Object Oriented patterns either. React (along with libraries like Redux) really has it's roots patterns chiefly found in functional
-languages (like Elm). So let's start writing some functions!
+React itself is a very modular framework (and you can see other frameworks following suit. For instance, Angular 1 came with the kitchen sink. Angular 2 is entirely modularized as well with routing, http, and more all being separate packages). One of the initial catch-phrases that followed React closely in its infancy was "Just the V in the View layer (of MVC)";
+however, while technically true, the statement not only really misses the [point of React](https://medium.com/@dan_abramov/youre-missing-the-point-of-react-a20e34a51e1a#.h5po9f5wc), but also slightly screws the truth because React doesn't really fit well into a client-side MVC or MVVM framework at all - hence the conceptual paradigm differences noted above.
+
+Similarly, React doesn't really fit well into Object Oriented patterns either. React (along with libraries like Redux) really has it's roots in patterns and paradigms chiefly found in functional
+languages (like Elm), and even with the advent of certain ES6 features like classes in Javascript that perhaps make it look more like C#, it's pretty functional through and through and the classes are merely syntactical sugar for functions implementing prototypical inheritance. So let's start writing some functions!
 
 ```
 function renderButton(label) {
@@ -19,8 +20,8 @@ function renderButton(label) {
 }
 ```
 
-We have a super simple function `render`. It has a single argument or property (let's just call it a prop), `title`. It has a return value.
-Currently, this function doesn't utilize or manipulate any value outside of itself. Thus, it is a pure function without side-effects. These kinds of functions will be really important later.
+We have a super simple function `render`. It has a single argument or property (let's just call it a `prop`), `title`. *It has a return value.* By default, in Javascript, everything has a return value - the value may be `undefined`. We need to ensure that it isn't. Return null or something else.
+Currently, this function doesn't utilize or manipulate any value outside of itself. Thus, it is a [`pure function` without `side-effects`](https://egghead.io/lessons/javascript-redux-pure-and-impure-functions). These kinds of functions will be really important later.
 
 We could, of course, pass other arguments / props. We could pass whatever we want - an object, an array, a number. We could pass multiple arguments or we could pass other *functions*. Whatever we need.
 
@@ -36,9 +37,11 @@ function render(label) {
 ```
 
 Notice, that we could say that `renderButton` is in some sense a *child* of it's parent: `render`. Thus, we have some sense of hierarchy with each level handling its own stuff.
-In fact, we could think of each function as a piece of our UI. It is a component.
+In fact, we could think of each function as a piece of our UI. *It is a component.* In fact, every piece of UI can be comprised of a single component or a group of components (and thus a hierarchy), which ultimately have a single parent.
 
-This kind of pure functional composition will get us a long way, but chances are we are going to need someplace to store *stateful* data about our UI.
+Components don't have to always return UI either. A component just needs to perform a function. That function could be checking permissions or getting data from an API, and then returning whatever components were passed to it!
+
+This kind of pure functional composition will get us a long way, but chances are we are going to need someplace to store *stateful* data about our UI too.
 Is there an error? Is a drawer open? Is that thingy being shown?
 
 ```
@@ -103,26 +106,38 @@ render("My Button", state);
 Notice how we have a tendency to pass arguments or props *down*, but events will actually call functions that were passed down,
 effectively causing things to travel back *up* to their original point of origin and context.
 
-Congratulations, you now know about 80% of React even though you haven't written any yet! 
-Here's a high level summary:
+So to recap, here's more or less what we've covered:
 
 + *Component:* a function or class that takes props as input and returns the elements as output
 + *Props:* immutable attributes or arguments passed to a React component
 + *State:* mutable attributes or values available to the React component.
-+ *`render`:* the fundamental method of a React component, which will return a string of html. Every React component must have one, and it cannot return undefined or null.
++ *`render`:* the fundamental method of a React component, which will return a string of html. Every React component must have one, and it cannot return undefined.
 
+Congratulations, you now know about 80% of React even though you haven't written any yet! 
 
-So here's the other 20% we haven't really talked about:
+Here's the other 20% we haven't really talked about:
 
 1. Lifecycle methods. Every *component* (which is just a function) in React has a lifecylce. You can do stuff initially. You can do stuff when the component mounts.
 You can do stuff when the component updates. You can do stuff right before the component is destroyed. They are just hooks into different stages of the component's life.
-One of these method's - the most important, and the only one that is required is called `render`, and it works exactly like the examples above.
+One of these method's - the most important, and the only one that is required is called `render`, and it works exactly like the examples above. Here's a few:
 
-2. There is this thing called refs in React. You won't use them often, but they serve as a hook to grab the actual DOM. In general, you don't want to do this.
++ `constructor`
++ `componentWillMount`
++ `render`
++ `componentDidMount`
++ `componentWillReceiveProps`
++ `componentDidUpdate`
++ `shouldComponentUpdate`
++ `setState`
++ `componentWillUnmount`
+
+The name of the method pretty well communicates its purpose.
+
+2. There is this thing called [refs](https://facebook.github.io/react/docs/refs-and-the-dom.html) in React. You won't use them often, but they serve as a hook to grab the actual DOM. In general, you don't want to do this.
 React is all about the *virtual DOM*. In other words, in creates an in-memory copy of the DOM, runs a diff algorithm comparing the actual DOM to the in-memory copy, and updates
 the real DOM behind the scenes in the most optimized and optimistic fashion possible. Directly manipulating the DOM is expensive. Ultimately, React has to use the same underlying DOM APIs as any other framework to do this;
 thus, in a small app, it is often more performant to directly manipulate the DOM; however, at scale, particularly in cases will large number of repeating component structures, such as lists, rows, or cards,
-React's virtual DOM shows it's true benefits.
+React's virtual DOM shows it's true benefits. Also note, you can only grab the actual DOM using a ref at certain times and in certain places, such as in `componentDidMount` or in an event handler.
 
 If you want to keep learning more React without React, you can check out this [tutorial](https://medium.com/javascript-inside/learn-the-concepts-part-1-418952d968cb#.k4ww3ymln)
 
@@ -133,16 +148,16 @@ So let's recap what we've learned so far.
 + React likes separate functions for distinct pieces of functionality. In other words, it likes to be modular. It likes components.
 + Functions can and often will be hierarchical with parent - child relationships
 + You will often pass arguments / properties (props) down the hierarchy to the children.
-+ You can pass anything you want - functions (other components), arrays, objects, numbers, strings.
-+ These strings will often be things like HTML classes (no jQuery here folks) or text that does between HTML tags.
-+ React components can have state - things, which usually consists of things like: are there errors? is the form dirty? Is the message shown?
-+ React components must have a render function / method (or consist only of a functions - called stateless functional syntax, which we are currently not using).
++ You can pass anything you want - functions (other components), arrays, objects, numbers, strings. Ultimately in react, these options/functions, arrays, numbers, etc will all be part of a single object called `props` that is passed down to the child component.
++ `Props` that are strings will often be things like HTML classes (no jQuery here folks) or text that does between HTML tags.
++ React components can have state - which usually consists of things like: are there errors? is the form dirty? Is the message shown? or form data.
++ React components must have a render function / method (or consist only of a functions - called stateless functional syntax, which we are not currently using).
 + Anytime you want to do something (say, on the `onClick` event), you will do this with an event handler, which is just a function, that usually was passed down to the component. More on this next.
-+ Don't touch the real DOM often (when you need to, you will use refs). When you do, be extremely careful, and only do things like measure the width or bounding client rectangle. Avoid manipulating the DOM directly.
++ Don't touch the real DOM often (when you need to, you will use `refs`). When you do, be extremely careful, and only do things like measure the width or bounding client rectangle. Avoid manipulating the DOM directly.
 
 Well, that's it. That *is* React. **The hardest part about React is learning to think about things in a new way**. No more two way data-binding. 
-Every thing flows one way and everything is explicit and declarative, and if you want to update an input, you need to do it (using the `onChange` event handler). It won't automatically happen.
-We can almost starting writing some real React, but first, say hello to JSX.
+Every thing flows one way and everything is explicit and declarative, and if you want to update an input, you actually need to do it (using the `onChange` event handler). It won't automatically happen.
+We can almost start writing some real React, but first, say hello to JSX.
 
 
 ## JSX

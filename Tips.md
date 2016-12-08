@@ -20,6 +20,9 @@ In JSX, `//` style comments won't work the majority of the time. Instead, write 
 React is consistent. Every file has the same basic structure. Create or [use a snippet](https://github.com/joevbruno/react-training/blob/master/snippets.json) to automatically generate the repeating elements.
 It will be a HUGE time saver!
 
+## re-renders are expensive
+Optimize your components using `shouldComponentUpdate`. 
+
 ## Keep your render method simple
 
 If your component consists of additional helper methods beyond simply a render method, 
