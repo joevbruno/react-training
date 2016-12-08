@@ -201,7 +201,9 @@ Finally, let me say that if you are wondering, "How do I write this in ES6?", ch
 Now on to the good stuff:
 
 
-1. Let and Const: Don't use `var`. Use `let` if the value or type is going to change and `const` if it isn't.
+1. Let and Const: Don't use `var`. Use `let` if the value or type is going to change and `const` if it isn't. Const is not immutable; however, certain values in Javascript (Strings and numbers) are by definition inherently immutable in Javascript.
+Thus, `const` effectively is immutable in those cases; however, in the case of `Objects` and `Arrays`, `const` merely states that they type is not going to change. These key words also do effect scope slightly differently than that traditional `var` keyword.
+
 2. Arrow Functions: In general, don't write your anonymous functions like this, `function() {  // do stuff }`. You can now do this: `() => { // do stuff }`
     ```
     const x = [1, 2, 3];
@@ -212,6 +214,7 @@ Now on to the good stuff:
     // `this` is lexically bound to the parent scope
     // no parens necessary around 'number'
     ```
+
 3. Object Spread: Works with Arrays and Objects. Think of it like "throw all of this into that -- flatly";
 
     ```
@@ -223,6 +226,7 @@ Now on to the good stuff:
         const y = { b: false, c: true }
         const z = { ...x, ...y } // { a: true, b: true, c: true } throw all of x and y flatly into z. If any keys are the same, the latter ones will override the earlier ones 
     ```
+
 4. Deconstruction: Works on Arrays and Objects. Think of it like "Give me this out that"
 
     ```
@@ -269,7 +273,8 @@ Now on to the good stuff:
     const z = { a: true, b: false }
     const y = { x, ...z } // { x: true, a: true, b: false }
     ```
-6. Imports and Exports: We don't really write Javascript in the global scope anymore. Every file is a module. Everything by default within that file is private; however, we can make functions or variables as exportable with `export`;
+
+6. Imports and Exports: We don't really write Javascript in the global scope anymore. Every file is a module. Everything by default within that file is `private`; however, we can make functions or variables as exportable with `export`;
    Any exported values can be imported (using `import`) by other modules (files).
 
    ```
@@ -301,9 +306,9 @@ const bar = `This is a ${foo}`;
 
 ```
 
-You should also be aware of [Promises](https://coligo.io/javascript-promises-plain-simple/).
+You should also be aware of [Promises](https://coligo.io/javascript-promises-plain-simple/), and be sure to checkout the [Tutorials](https://github.com/joevbruno/react-training/blob/master/Tutorials.md) page here for other helpful links on promises.
 
-There is a lot of other awesome features in ES6+, but these will get you through most of the stuff in our codebase. Also, you can use any of the standardized ES6+ plus features,
+There is a lot of other awesome features in [ES6+](https://github.com/joevbruno/react-training/blob/master/Tutorials.md), but these will get you through most of the stuff in our codebase. Also, you can use any of the standardized ES6+ plus features,
 without worrying about things like browser compatibility. Since everything, including the JSX, is transpiled to ES5 (or even IE6 compatible ES3), we can use anything we want anywhere.
 This is all thanks to Babel.
 
@@ -341,6 +346,25 @@ class MyButton extends Component {
 <MyButton title="My Button" /> 
 or <MyButton title={"My Button"} /> 
 ```
+
+
+In React, there is also a special `prop` called `children`. Children is a generic term for anything between the component's opening and closing tags. It looks like this:
+ 
+ ```
+ <Button onClick={this.showMessageOnClick}>{children}</Button>
+```
+Since `children` is present between the opening and closing `Button` tags, anything we could write something like this:
+
+ 
+ ```
+ <Button>
+    <h1>Hello</h1>
+    <h5>Helllloooo</ht>
+</Button>
+```
+
+Anything you want, that is valid HTML nesting, can go in the place of `children`. Child is just a prop.
+
 
 `props` AKA, arguments, AKA options, AKA the component API AKA ... you get the point... is always available on `this` at `this.props`;
 `state` is available at `this.state`. Let's see how we could add state.
@@ -431,8 +455,8 @@ class MyButton extends Component {
 or <MyButton title={"My Button"} /> 
 ```
 
-`render` can only return a single Element. So since we have two now - message and `button` - we need to wrap them in a `div` or something.
-React components can return `null`, markup or other components. They cannot return `undefined`, an `array`, `string` or `object`.
+`render` can only return a single Element. So since we have two now - message and `button` - we need to wrap them in a `div` or something (`section`, `span`, `aside`, something).
+React components can return `null`, markup or other components. They **cannot** return `undefined`, an `array`, `string` or `object`.
 Notice the `{` around `message` (`{message}`). This means we are saying, "JSX, treat this as Javascript - in this case a JS variable".
 
 Like so many other things, there is often more than one way to do things. Here are a couple of other variations of the same thing.
@@ -515,7 +539,8 @@ class MyButton extends Component {
 or <MyButton title={"My Button"} /> 
 ```
 
-So we've covered most of React now. Actual React. Two quick things: 1) PropTypes and 2) Imports
+So we've covered most of React now. Actual React. Two quick things: 1) PropTypes and 2) Imports.
+
 Javascript is not a strictly typed language. While you could use something like Flow or Typescript for this, React does provide a generic way to run type validations on `props`: `PropTypes`;
 Here's what that looks like:
 
@@ -673,19 +698,22 @@ export default MyComponent;
 
 ``` 
 
-So how do we get React? In other words, how does `import React from "react"` work? Where does "react" come from? Answer: [NPM](https://www.npmjs.com/). When you install [Node.js](https://nodejs.org/en/) - version 4+ or higher (and preferably using something like [NVM](https://github.com/coreybutler/nvm-windows)), Node includes NPM (originally named Node Package Manager). Most of the time it is as simple as running `npm install` in the terminal / powershell at your project's root directory. This will install all of the third party libraries
-listed in your `package.json` file into the project in a directory called `node_modules`. On Windows, you will want to make sure you are aware of a couple of things:
+So how do we get React? In other words, how does `import React from "react"` work? Where does "react" come from? Answer: [NPM](https://www.npmjs.com/).
+
+When you install [Node.js](https://nodejs.org/en/) - version 4+ or higher (and preferably using something like [NVM](https://github.com/coreybutler/nvm-windows)), Node includes NPM (originally named Node Package Manager). Most of the time it is as simple as running `npm install` in the terminal / powershell at your project's root directory. This will install all of the third party libraries listed in your `package.json` file into the project in a directory called `node_modules`. On Windows, you will want to make sure you are aware of a couple of things:
     1. You NEED NPM v3+ (`npm -v`) or you will run into MAX_PATH issues
     2. [use `rimraf` to delete node_modules](https://github.com/isaacs/rimraf), don't attempt to delete them using the delete button or you will regret it.
     
 Lastly with regard to NPM, the `package.json` not only can contain information about which packages your project is using (and what versions), it also can contain configuration information and scripts to run.
 
-For instance, you can run `npm start` at the root of almost any Node Project containing a `package.json` file and something will start running. For G2, as in most apps, this starts the default development environment.
+For instance, you can run `npm start` at the root of almost any Node Project containing a `package.json` file and something will start running. In most cases, this starts the default development environment.
 
 ## Final words
 
 There is an industry standard linter for modern Javascript called ESLint. It will enforce writing code a certain way. You will probably hate it at first, but it will make reading everyone's code consistent, avoid bugs, and actually will catch a lot of syntax errors for you.
-Second, when diving through tutorials, you will see a ton on Webpack and Babel. You should learn this stuff, but you won't need to interact with it in G2 (at least not much) because all of this has already been set up for you. So put this on the back-burner.
+Second, when diving through tutorials, you will see a ton on Webpack and Babel. You should learn this stuff, but you won't need to interact with it in G2 (at least not much) because all of this has already been set up for you. So put this on the back-burner; however, in G2 you will see references to `Controls`, `Utilities` and `HOCs`. These are webpack aliases to certain files. 
+
+Lastly, if you are accustomed to writing `use strict` at the top of your Javascript files, that is no longer necessary. When Babel transpiles code, it automatically inserts a `use strict` statement at the top of every module / file.
 
 Now, we all know Rome wasn't built in a day. There's still a long road ahead. So go back to the main page and continue moving on to the next section! But first, a coffee break...
 

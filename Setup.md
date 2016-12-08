@@ -1,3 +1,7 @@
+See are standards and setup docs in SVN to get Node and NPM.
+
+Then:
+
 ## VSCode Plugins
 
 ### Helpful
