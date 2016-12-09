@@ -29,6 +29,7 @@ A state container for JavaScript, where the entire state of your application is 
 + [Intro Redux on Egghead](https://egghead.io/courses/getting-started-with-redux)
 + [Wes' Intro Videos](https://learnredux.com/)
 + [More Advanced Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)
++ [Good written article](https://medium.freecodecamp.com/why-redux-makes-sense-to-me-and-how-i-conceptualize-it-c8a3a9db15ca#.a9xwz8uye)
 
 
 ## React Router
