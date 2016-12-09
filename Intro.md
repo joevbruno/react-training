@@ -134,7 +134,7 @@ One of these method's - the most important, and the only one that is required is
 The name of the method pretty well communicates its purpose.
 
 2. There is this thing called [refs](https://facebook.github.io/react/docs/refs-and-the-dom.html) in React. You won't use them often, but they serve as a hook to grab the actual DOM. In general, you don't want to do this.
-React is all about the *virtual DOM*. In other words, in creates an in-memory copy of the DOM, runs a diff algorithm comparing the actual DOM to the in-memory copy, and updates
+React is all about the [*virtual DOM*](https://medium.com/@deathmood/how-to-write-your-own-virtual-dom-ee74acc13060#.mj0uvfojd). In other words, in creates an in-memory copy of the DOM, runs a diff algorithm comparing the actual DOM to the in-memory copy, and updates
 the real DOM behind the scenes in the most optimized and optimistic fashion possible. Directly manipulating the DOM is expensive. Ultimately, React has to use the same underlying DOM APIs as any other framework to do this;
 thus, in a small app, it is often more performant to directly manipulate the DOM; however, at scale, particularly in cases will large number of repeating component structures, such as lists, rows, or cards,
 React's virtual DOM shows it's true benefits. Also note, you can only grab the actual DOM using a ref at certain times and in certain places, such as in `componentDidMount` or in an event handler.
