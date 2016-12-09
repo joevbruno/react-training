@@ -18,6 +18,7 @@ Facebook’s JavaScript library for building UIs.  React allows developers to de
 + More Advanced: [Optimizing React](https://medium.com/@alexandereardon/performance-optimisations-for-react-applications-b453c597b191#.gl0vmwozp)
 + More Advanced: [Higher Order Components](http://engineering.blogfoster.com/higher-order-components-theory-and-practice)
 + More Advanced: [Common Patterns](http://reactpatterns.com/)
++ More Advanced: [Safely Using Context](https://medium.com/@mweststrate/how-to-safely-use-react-context-b7e343eff076#.hiwil5484)
 
 
 ## Redux
