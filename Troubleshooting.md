@@ -34,6 +34,17 @@ render() {
 }
 
 ```
+### Something about needing a unique `key`?
+You need to tell React that each item in array is unique. This is done with a special `prop` called a `key`. You use it like this:
+
+```
+myArray.map((item, index) => {
+    const key = index; // most of the time setting the key to just the array index works great
+    return (<div key={key}></div>);
+});
+```
+
+If you want to know what you need this, checkout this [link] (https://www.reddit.com/r/reactjs/comments/4mjdcf/why_cant_i_put_key_in_default_props_or_define_the/d3xwa6m/)
 
 
 ### Hot reloading doesn't appear to be working?
