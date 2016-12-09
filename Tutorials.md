@@ -108,3 +108,6 @@ JavaScript compiler that allows us to use features that browsers don’t support
 A build tool and module bundler that takes modules with dependencies and generates static assets.
 + [Docs](https://webpack.github.io/docs/what-is-webpack.html)
 + [The Confusing Parts](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9#.qoubedxij)
+
+
+Here's another pretty good "Learning React" [guide](https://github.com/ericdouglas/react-learning)
