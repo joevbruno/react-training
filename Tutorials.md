@@ -16,6 +16,7 @@ Facebook’s JavaScript library for building UIs.  React allows developers to de
 + Once you feel comfortable with React in general, [this cheatsheet can be helpful](http://reactcheatsheet.com/)
 + [Tons of other tutorials](https://github.com/timarney/react-faq)
 + More Advanced: [Optimizing React](https://medium.com/@alexandereardon/performance-optimisations-for-react-applications-b453c597b191#.gl0vmwozp)
++ More Advanced: [Higher Order Components](http://engineering.blogfoster.com/higher-order-components-theory-and-practice)
 
 
 ## Redux
