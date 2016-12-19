@@ -9,6 +9,7 @@ Beyond the obvious thing of exploring the links below, it is really helpful to d
 Facebook’s JavaScript library for building UIs.  React allows developers to define reusable components that encapsulate their markup and logic.  Markup (JSX) is written with the JavaScript in the same file (we use the .jsx file extension).  There are a few differences between normal HTML and JSX.  One such example is that class isn’t a valid attribute on HTML elements, since class is a keyword in ES6; instead you should use className.  React uses virtual DOM and a diffing algorithm to determine whether updates to the real DOM should be made.  This makes component updates easier (you don’t have to track whether or not something has change) and faster.
 
 + [React Playground] (http://www.react.run/HyVJ-QHZe/1)
++ [Egghead React Cheatsheet](https://d3cxrxf04bhbwz.cloudfront.net/cheat-sheets/egghead-react-cheat-sheet-0-14-7.pdf)
 + [Facebook Docs](https://facebook.github.io/react/tutorial/tutorial.html)
 + [Facebook Tutorial](https://facebook.github.io/react/docs/hello-world.html)
 + [How to Learn React](http://bkd705.com/how-to-learn-react/)
@@ -26,7 +27,7 @@ A state container for JavaScript, where the entire state of your application is 
 1. Single source of truth – the state of the entire application is stored in a single data store; there aren’t multiple stores with the same data.
 2. State is read-only – state can only be changed by emitting actions, it should not be mutated directly.
 3. Changes are made with pure functions – the state tree is transformed by action by writing pure functions (called reducers).  Reducers take the previous state and action as input and returns the next state without mutating the previous state.
-    
++ [Redux Cheatsheet](https://d3cxrxf04bhbwz.cloudfront.net/cheat-sheets/egghead-redux-cheat-sheet-3-2-1.pdf)
 + [Redux Docs](http://redux.js.org/)
 + [Intro Redux on Egghead](https://egghead.io/courses/getting-started-with-redux)
 + [Wes' Intro Videos](https://learnredux.com/)
