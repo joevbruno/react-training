@@ -21,6 +21,8 @@ Facebook’s JavaScript library for building UIs.  React allows developers to de
 + More Advanced: [Common Patterns](http://reactpatterns.com/)
 + More Advanced: [Safely Using Context](https://medium.com/@mweststrate/how-to-safely-use-react-context-b7e343eff076#.hiwil5484)
 
+### Advaned Examples
++ [HOC using Context to provide theme](https://github.com/styled-components/styled-components/blob/master/src/hoc/withTheme.js)
 
 ## Redux
 A state container for JavaScript, where the entire state of your application is stored in a single store.  State in the store can only be changed by emitting actions.  Redux can be described using three main principles:
@@ -130,3 +132,6 @@ Here's another pretty good "Learning React" [guide](https://github.com/ericdougl
 
 ### RxJs
 + [RxJs Playground](https://jsfiddle.net/btroncone/pvj1nbLa/)
+
+### Styled Components
++ [Styled components](https://github.com/styled-components/styled-components)
