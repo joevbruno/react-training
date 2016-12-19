@@ -34,10 +34,21 @@ A state container for JavaScript, where the entire state of your application is 
 + [More Advanced Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)
 + [Good written article](https://medium.freecodecamp.com/why-redux-makes-sense-to-me-and-how-i-conceptualize-it-c8a3a9db15ca#.a9xwz8uye)
 
+### Redux Middleware
++ [redux-promise](https://www.npmjs.com/package/redux-promise)
++ [redux-thunk](https://github.com/gaearon/redux-thunk)
++ [redux-observable](https://github.com/redux-observable/redux-observable)
++ [redux-saga](https://github.com/yelouafi/redux-saga)
++ [redux-logic - Jeff](https://github.com/jeffbski/redux-logic)
++ [redux-pack - Leland at Airbnb](https://github.com/lelandrichardson/redux-pack)
+
 
 ## React Router
 A routing library for React.  It keeps the UI in sync with the browser’s URL and provides features such as lazy code loading, dynamic route matching, and location transition handling.
 + [Router Docs](https://github.com/ReactTraining/react-router)
+
+### React-Router with Redux
++ [Exponent as Example](https://github.com/exponentjs/ex-navigation/blob/aa327307998a60aa82f4b69988b2fd5660f22e4a/src/ExNavigationProvider.js)
 
 ## React Toolbox
 React UI components that implement Material Design (mostly).
@@ -78,14 +89,14 @@ A pre-processor that extends CSS.  Features of SASS include variables, nesting, 
  
 ## ESLint
 Linter that analyzes our front-end code to check for potential errors, best practices, and code consistency. Use an editor Extension!
-+ [Docs](ttp://eslint.org/)
++ [Docs](http://eslint.org/)
  
 ## Promises
 + [Visual Guide to Promises](http://bevacqua.github.io/promisees/)
 + [Promises and Async Await](https://medium.com/@bluepnume/learn-about-promises-before-you-start-using-async-await-eb148164a9c8#.8oesasp5o)
 
 ## Other Libs
-    + [classnames](https://github.com/JedWatson/classnames)
++ [classnames](https://github.com/JedWatson/classnames)
 
 ## Material Design
 Design spec developed by Google.
@@ -114,3 +125,8 @@ A build tool and module bundler that takes modules with dependencies and generat
 
 
 Here's another pretty good "Learning React" [guide](https://github.com/ericdouglas/react-learning)
+
+## Appendix
+
+### RxJs
++ [RxJs Playground](https://jsfiddle.net/btroncone/pvj1nbLa/)
