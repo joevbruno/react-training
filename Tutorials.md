@@ -127,6 +127,9 @@ A build tool and module bundler that takes modules with dependencies and generat
 + [Docs](https://webpack.github.io/docs/what-is-webpack.html)
 + [The Confusing Parts](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9#.qoubedxij)
 
+## Webpack (v2)
++ [General Guide from Scatch](https://blog.madewithenvy.com/getting-started-with-webpack-2-ed2b86c68783#.uwrt0tcep)
+
 
 Here's another pretty good "Learning React" [guide](https://github.com/ericdouglas/react-learning)
 
