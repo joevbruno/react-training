@@ -21,6 +21,8 @@ Facebook’s JavaScript library for building UIs.  React allows developers to de
 + More Advanced: [Common Patterns](http://reactpatterns.com/)
 + More Advanced: [Safely Using Context](https://medium.com/@mweststrate/how-to-safely-use-react-context-b7e343eff076#.hiwil5484)
 
+https://tylermcginnis.com/react-aha-moments/
+
 ### Advaned Examples
 + [HOC using Context to provide theme](https://github.com/styled-components/styled-components/blob/master/src/hoc/withTheme.js)
 
